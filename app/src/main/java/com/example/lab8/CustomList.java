@@ -62,11 +62,18 @@ public class CustomList extends ArrayAdapter<City> {
                 isDeleted = true;
             }
         }
-
-        // throw an exception
         if (!isDeleted) {
-            throw new Exception("This city is not in the list, failed to delete.");
+            throw new Exception("This citry cannot be found in the list.");}
+    }
+    
+    //Checks if a list contains a given city object
+    public boolean hasCity(City city){
+        for(int i = 0; i < cities.size(); i++){
+            if (cities.get(i).getCityName() == city.getCityName() && cities.get(i).getProvinceName() == city.getProvinceName()){
+                return true;
+            }
         }
+        return false;
     }
     
     
