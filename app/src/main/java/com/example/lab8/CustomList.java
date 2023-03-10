@@ -52,5 +52,23 @@ public class CustomList extends ArrayAdapter<City> {
     public void addCity(City city){
 
     }
+    
+    //Delete city function
+    public void deleteCity(City city) throws Exception {
+        boolean isDeleted = false;
+        for(int i = 0; i < cities.size(); i++){
+            if (cities.get(i).getCityName() == city.getCityName() && cities.get(i).getProvinceName() == city.getProvinceName()){
+                cities.remove(i);
+                isDeleted = true;
+            }
+        }
+
+        // throw an exception
+        if (!isDeleted) {
+            throw new Exception("This city is not in the list, failed to delete.");
+        }
+    }
+    
+    
 
 }
